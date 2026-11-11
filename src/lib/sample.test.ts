@@ -16,3 +16,12 @@ describe('public/sample-words.csv', () => {
     }
   });
 });
+
+describe('public/words-100.csv', () => {
+  it('contains 100 valid words that do not overlap the 30-word sample', () => {
+    const read = (f: string) => readFileSync(new URL(`../../public/${f}`, import.meta.url), 'utf8');
+    const first = importCsv(createInitialState(), read('sample-words.csv'), new Date());
+    const { summary } = importCsv(first.state, read('words-100.csv'), new Date());
+    expect(summary).toMatchObject({ added: 100, duplicates: 0, invalid: [] });
+  });
+});

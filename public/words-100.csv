@@ -1,0 +1,101 @@
+estonian_word,english_word,sentence_estonian,sentence_english
+head aega,goodbye,"Head aega, näeme homme!","Goodbye, see you tomorrow!"
+palun,please,"Üks kohv, palun.","One coffee, please."
+jah,yes,"Jah, ma tulen kohe.","Yes, I am coming right away."
+ei,no,"Ei, ma ei taha teed.","No, I don't want tea."
+vabandust,sorry,"Vabandust, kus on jaam?","Sorry, where is the station?"
+nimi,name,Minu nimi on Anna.,My name is Anna.
+mees,man,See mees on minu naaber.,This man is my neighbour.
+naine,woman,Naine ootab bussi.,The woman is waiting for the bus.
+laps,child,Laps mängib õues.,The child is playing outside.
+vend,brother,Mu vend õpib ülikoolis.,My brother studies at university.
+õde,sister,Minu õde on õpetaja.,My sister is a teacher.
+vanaema,grandmother,Vanaema küpsetab kooki.,Grandmother is baking a cake.
+õpetaja,teacher,Õpetaja räägib aeglaselt.,The teacher speaks slowly.
+arst,doctor,Arst töötab haiglas.,The doctor works in a hospital.
+tuba,room,Minu tuba on hele.,My room is bright.
+köök,kitchen,Ema on köögis.,Mum is in the kitchen.
+uks,door,Uks on lahti.,The door is open.
+aken,window,Aken on kinni.,The window is closed.
+laud,table,Laud on puust.,The table is made of wood.
+tool,chair,Tool on laua kõrval.,The chair is next to the table.
+voodi,bed,Kass magab voodis.,The cat sleeps in the bed.
+võti,key,Kus on minu võti?,Where is my key?
+juust,cheese,Ma ostan juustu ja leiba.,I am buying cheese and bread.
+muna,egg,Ma söön hommikul muna.,I eat an egg in the morning.
+kala,fish,Me sööme täna kala.,We are eating fish today.
+liha,meat,Ma ei söö liha.,I don't eat meat.
+supp,soup,Supp on väga kuum.,The soup is very hot.
+kartul,potato,Eestlased armastavad kartulit.,Estonians love potatoes.
+banaan,banana,Laps sööb banaani.,The child is eating a banana.
+mahl,juice,Ma joon apelsinimahla.,I drink orange juice.
+suhkur,sugar,Ma ei võta suhkrut.,I don't take sugar.
+sool,salt,Supis on liiga palju soola.,There is too much salt in the soup.
+hommikusöök,breakfast,Hommikusöök on laual.,Breakfast is on the table.
+jäätis,ice cream,Lapsed söövad jäätist.,The children are eating ice cream.
+tänav,street,See tänav on väga pikk.,This street is very long.
+pank,bank,Pank on nurga taga.,The bank is around the corner.
+haigla,hospital,Haigla on kesklinnas.,The hospital is in the city centre.
+jaam,station,Rong seisab jaamas.,The train is standing at the station.
+rong,train,Rong läheb Tartusse.,The train goes to Tartu.
+lennuk,airplane,Lennuk väljub kell kümme.,The plane departs at ten.
+jalgratas,bicycle,Ma sõidan jalgrattaga tööle.,I ride my bicycle to work.
+kohvik,café,Me istume kohvikus.,We are sitting in a café.
+restoran,restaurant,See restoran on kallis.,This restaurant is expensive.
+park,park,Koer jookseb pargis.,The dog runs in the park.
+meri,sea,Meri on täna rahulik.,The sea is calm today.
+mets,forest,Eestis on palju metsa.,There is a lot of forest in Estonia.
+saar,island,Saaremaa on suur saar.,Saaremaa is a big island.
+täna,today,Täna on esmaspäev.,Today is Monday.
+homme,tomorrow,Homme on mul vaba päev.,Tomorrow I have a day off.
+nädal,week,Nädalas on seitse päeva.,There are seven days in a week.
+kuu,month,Mis kuu praegu on?,What month is it now?
+aasta,year,Aastas on kaksteist kuud.,There are twelve months in a year.
+tund,hour,Tund on kuuskümmend minutit.,An hour is sixty minutes.
+õhtu,evening,Õhtul loen ma raamatut.,In the evening I read a book.
+öö,night,Öö on pime ja vaikne.,The night is dark and quiet.
+hommik,morning,Hommik on päikeseline.,The morning is sunny.
+nädalavahetus,weekend,Nädalavahetus on lühike.,The weekend is short.
+päike,sun,Päike paistab eredalt.,The sun is shining brightly.
+vihm,rain,Väljas sajab vihma.,It is raining outside.
+lumi,snow,Talvel on palju lund.,There is a lot of snow in winter.
+külm,cold,Täna on väga külm.,It is very cold today.
+soe,warm,Tuba on soe ja hubane.,The room is warm and cosy.
+talv,winter,Eesti talv on pikk.,The Estonian winter is long.
+suvi,summer,Suvi on minu lemmikaeg.,Summer is my favourite time.
+hea,good,See film on väga hea.,This film is very good.
+halb,bad,Mul on halb tuju.,I am in a bad mood.
+uus,new,Mul on uus telefon.,I have a new phone.
+vana,old,See maja on väga vana.,This house is very old.
+noor,young,Meie õpetaja on noor.,Our teacher is young.
+kallis,expensive,Kohv on siin kallis.,Coffee is expensive here.
+odav,cheap,See särk on odav.,This shirt is cheap.
+kiire,fast,See auto on väga kiire.,This car is very fast.
+aeglane,slow,Internet on täna aeglane.,The internet is slow today.
+väsinud,tired,Ma olen täna väsinud.,I am tired today.
+õnnelik,happy,Laps on väga õnnelik.,The child is very happy.
+punane,red,Mul on punane kleit.,I have a red dress.
+sinine,blue,Taevas on sinine.,The sky is blue.
+roheline,green,Muru on roheline.,The grass is green.
+valge,white,Lumi on valge.,Snow is white.
+must,black,Mul on must kass.,I have a black cat.
+olema,to be,Ma olen kodus.,I am at home.
+minema,to go,Ma lähen poodi.,I am going to the shop.
+tulema,to come,Sõber tuleb külla.,A friend is coming to visit.
+jooma,to drink,Me joome koos teed.,We drink tea together.
+magama,to sleep,Laps magab hästi.,The child sleeps well.
+lugema,to read,Ma loen ajalehte.,I am reading a newspaper.
+kirjutama,to write,Õpilane kirjutab kirja.,The student is writing a letter.
+rääkima,to speak,Ma räägin natuke eesti keelt.,I speak a little Estonian.
+õppima,to learn,Ma õpin eesti keelt.,I am learning Estonian.
+töötama,to work,Isa töötab pangas.,Father works at a bank.
+ostma,to buy,Ma ostan uued kingad.,I am buying new shoes.
+tegema,to do,Mida sa täna teed?,What are you doing today?
+tahtma,to want,Ma tahan kohvi.,I want coffee.
+armastama,to love,Ma armastan oma peret.,I love my family.
+teadma,to know,Ma ei tea vastust.,I don't know the answer.
+nägema,to see,Ma näen merd.,I see the sea.
+kuulama,to listen,Ma kuulan muusikat.,I am listening to music.
+ootama,to wait,Me ootame bussi.,We are waiting for the bus.
+mängima,to play,Lapsed mängivad pargis.,The children are playing in the park.
+ujuma,to swim,Suvel ujume meres.,In summer we swim in the sea.
