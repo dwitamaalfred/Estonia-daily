@@ -1,7 +1,8 @@
 import { useAppState } from './useAppState';
+import { UploadCsv } from './components/UploadCsv';
 
 export default function App() {
-  const [state] = useAppState();
+  const [state, setState] = useAppState();
   return (
     <div className="app">
       <header className="app-header">
@@ -11,7 +12,9 @@ export default function App() {
         <section className="panel" aria-label="Quiz">
           <p>Words in library: {state.words.length}</p>
         </section>
-        <section className="panel" aria-label="Dashboard" />
+        <section className="panel" aria-label="Dashboard">
+          <UploadCsv state={state} onChange={setState} />
+        </section>
       </main>
     </div>
   );
