@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 
 interface Props {
   open: boolean;
@@ -12,6 +13,8 @@ interface Props {
 /** Lightweight accessible dialog: focus moves in, Escape closes, focus restored on close. */
 export function Modal({ open, onClose, labelledBy, children, variant = 'center', className = '' }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  const closeRef = useRef(onClose);
+  closeRef.current = onClose;
   useEffect(() => {
     if (!open) return;
     const previous = document.activeElement as HTMLElement | null;
@@ -19,7 +22,7 @@ export function Modal({ open, onClose, labelledBy, children, variant = 'center',
     const first = el?.querySelector<HTMLElement>('[data-autofocus], button, input, select, textarea');
     first?.focus({ preventScroll: true });
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && onClose) onClose();
+      if (e.key === 'Escape' && closeRef.current) closeRef.current();
       if (e.key === 'Tab' && el) {
         const items = el.querySelectorAll<HTMLElement>('button, input, select, textarea, a[href]');
         if (items.length === 0) return;
@@ -39,14 +42,15 @@ export function Modal({ open, onClose, labelledBy, children, variant = 'center',
       document.removeEventListener('keydown', onKey);
       previous?.focus?.({ preventScroll: true });
     };
-  }, [open, onClose]);
+  }, [open]);
 
   if (!open) return null;
-  return (
+  return createPortal(
     <div className={`overlay overlay--${variant}`} onClick={onClose ? (e) => e.target === e.currentTarget && onClose() : undefined}>
       <div ref={ref} role="dialog" aria-modal="true" aria-labelledby={labelledBy} className={`dialog dialog--${variant} ${className}`}>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

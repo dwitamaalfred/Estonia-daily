@@ -659,3 +659,336 @@ input[type='number'] {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- Dashboard ---------- */
+.stats {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.period-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.period-nav__label {
+  font-weight: 650;
+  text-align: center;
+}
+
+.grid-wrap {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 2px;
+}
+.grid {
+  --cell: clamp(30px, 9vw, 40px);
+  --gap: 5px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 8px;
+  row-gap: 4px;
+}
+.grid__months {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--cell));
+  column-gap: var(--gap);
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: var(--muted);
+  height: 1.2em;
+}
+.grid__months span {
+  white-space: nowrap;
+}
+.grid__rows {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: repeat(7, var(--cell));
+  row-gap: var(--gap);
+  font-size: 0.72rem;
+  color: var(--muted);
+  align-items: center;
+}
+.grid__cells {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--cell);
+  column-gap: var(--gap);
+}
+.grid__col {
+  display: grid;
+  grid-template-rows: repeat(7, var(--cell));
+  row-gap: var(--gap);
+}
+.cell {
+  width: var(--cell);
+  height: var(--cell);
+  border-radius: 7px;
+  border: 0;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.12s ease;
+}
+button.cell:active {
+  transform: scale(0.92);
+}
+.cell--empty {
+  background: transparent;
+  cursor: default;
+}
+.cell--upcoming {
+  background: var(--cell-upcoming);
+  box-shadow: inset 0 0 0 1.5px var(--border);
+  outline: 1.5px dashed var(--border);
+  outline-offset: -1.5px;
+}
+.cell--skipped {
+  background: var(--cell-skipped)
+    repeating-linear-gradient(135deg, transparent 0 4px, rgb(255 255 255 / 22%) 4px 6px);
+}
+.cell--done {
+  color: rgb(255 255 255 / 85%);
+}
+.cell--l1 {
+  background: var(--cell-1);
+  color: #17703b;
+}
+.cell--l2 {
+  background: var(--cell-2);
+}
+.cell--l3 {
+  background: var(--cell-3);
+}
+.cell--l4 {
+  background: var(--cell-4);
+}
+@media (prefers-color-scheme: dark) {
+  .cell--l1 {
+    color: #a7e3bb;
+  }
+  .cell--l3,
+  .cell--l4 {
+    color: #0d2a18;
+  }
+}
+.cell--today {
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--primary);
+  outline: none;
+}
+.cell--selected {
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--text);
+}
+.day-detail {
+  margin-top: 10px;
+  min-height: 2.9em;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--muted);
+}
+.legend {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  font-size: 0.85rem;
+}
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.legend__swatch {
+  --cell: 20px;
+  border-radius: 5px;
+  cursor: default;
+  font-size: 0.65rem;
+}
+.legend__swatch--sm {
+  --cell: 14px;
+  border-radius: 4px;
+}
+.legend__scale {
+  gap: 4px !important;
+}
+
+.count {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+.count strong {
+  font-size: 1.6rem;
+  color: var(--text);
+}
+.progress {
+  height: 14px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.progress__bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cell-2), var(--success));
+  transition: width 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.segmented {
+  display: inline-flex;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px;
+}
+.segmented button {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-weight: 650;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--muted);
+}
+.segmented button.is-active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+.table-wrap {
+  margin-top: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  max-height: 520px;
+  overflow-y: auto;
+}
+.table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.table th {
+  position: sticky;
+  top: 0;
+  background: var(--surface-2);
+  text-align: left;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  padding: 10px 12px;
+  white-space: nowrap;
+  z-index: 1;
+}
+.table td {
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+  vertical-align: middle;
+}
+.table .strong {
+  font-weight: 700;
+}
+.sentence-cell {
+  min-width: 180px;
+}
+.table-empty {
+  padding: 20px 4px 6px;
+  text-align: center;
+}
+.status {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 650;
+  color: var(--muted);
+}
+.status--learned {
+  color: var(--success);
+}
+.row-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+.icon-btn--danger:hover {
+  border-color: var(--danger);
+}
+
+/* ---------- Forms ---------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.field__row {
+  display: flex;
+  gap: 8px;
+}
+.field__row input {
+  max-width: 120px;
+}
+.form__error {
+  color: var(--danger);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.form__ok {
+  color: var(--success);
+  font-weight: 600;
+}
+.divider {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 4px 0;
+  width: 100%;
+}
+.danger-text {
+  color: var(--danger);
+}
+.danger-zone {
+  background: var(--danger-bg);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+/* Keep row actions reachable while the table scrolls sideways. */
+.table th:last-child,
+.table td:last-child {
+  position: sticky;
+  right: 0;
+  background: var(--surface);
+  box-shadow: -8px 0 8px -8px rgb(0 0 0 / 25%);
+}
+.table th:last-child {
+  background: var(--surface-2);
+  z-index: 2;
+}
