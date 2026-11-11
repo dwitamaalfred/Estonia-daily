@@ -1,25 +1,12 @@
 import { useMemo, useState } from 'react';
 import type { AppState, Word } from '../lib/types';
-import { deleteWord, editWord, markNotLearned, norm } from '../lib/words';
+import { deleteWord, editWord, markNotLearned, norm, sortNewestFirst, type DictionaryFilter as Filter } from '../lib/words';
 import { ConfirmDialog } from './ConfirmDialog';
 import { EditWordDialog } from './EditWordDialog';
 
 interface Props {
   state: AppState;
   setState: (s: AppState) => void;
-}
-
-type Filter = 'learned' | 'all';
-
-/** Newest first: by learn time for the dictionary, by upload time for the whole library (file order within an upload). */
-export function sortNewestFirst(words: Word[], filter: Filter): Word[] {
-  const indexed = words.map((w, i) => ({ w, i }));
-  indexed.sort((a, b) => {
-    const ta = filter === 'learned' ? (a.w.learnedTs ?? 0) : a.w.addedAt;
-    const tb = filter === 'learned' ? (b.w.learnedTs ?? 0) : b.w.addedAt;
-    return tb - ta || a.i - b.i;
-  });
-  return indexed.map((x) => x.w);
 }
 
 export function Dictionary({ state, setState }: Props) {

@@ -103,3 +103,17 @@ export function resetProgress(state: AppState, todayKey: string): AppState {
     startDate: state.words.length > 0 ? todayKey : null,
   };
 }
+
+export type DictionaryFilter = 'learned' | 'all';
+
+/** Newest first: by learn time for the dictionary, by upload time for the whole library (file order within an upload). */
+export function sortNewestFirst(words: Word[], filter: DictionaryFilter): Word[] {
+  const indexed = words.map((w, i) => ({ w, i }));
+  indexed.sort((a, b) => {
+    const ta = filter === 'learned' ? (a.w.learnedTs ?? 0) : a.w.addedAt;
+    const tb = filter === 'learned' ? (b.w.learnedTs ?? 0) : b.w.addedAt;
+    return tb - ta || a.i - b.i;
+  });
+  return indexed.map((x) => x.w);
+}
+

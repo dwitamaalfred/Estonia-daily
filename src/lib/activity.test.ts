@@ -94,3 +94,18 @@ describe('streak and midnight', () => {
     expect(toDateKey(new Date(2027, 0, 1, 0, 0))).toBe('2027-01-01');
   });
 });
+
+import { addDays } from './dates';
+
+describe('local dates are DST-safe', () => {
+  it('walks every day of a year without skipping or repeating', () => {
+    let key = '2026-01-01';
+    const seen = new Set<string>();
+    for (let i = 0; i < 365; i++) {
+      seen.add(key);
+      key = addDays(key, 1);
+    }
+    expect(seen.size).toBe(365);
+    expect(key).toBe('2027-01-01');
+  });
+});

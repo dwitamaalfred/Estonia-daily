@@ -50,3 +50,15 @@ describe('words', () => {
     expect(r.startDate).toBe('2026-11-12');
   });
 });
+
+import { sortNewestFirst } from './words';
+
+describe('dictionary order', () => {
+  it('shows newest first (learn time for Learned, upload time for All, file order within an upload)', () => {
+    const a = { ...makeWord({ estonian_word: 'a', english_word: '1' }, 100), status: 'learned' as const, learnedTs: 500 };
+    const b = { ...makeWord({ estonian_word: 'b', english_word: '2' }, 100), status: 'learned' as const, learnedTs: 900 };
+    const c = makeWord({ estonian_word: 'c', english_word: '3' }, 200);
+    expect(sortNewestFirst([a, b], 'learned').map((w) => w.estonian_word)).toEqual(['b', 'a']);
+    expect(sortNewestFirst([a, b, c], 'all').map((w) => w.estonian_word)).toEqual(['c', 'a', 'b']);
+  });
+});
